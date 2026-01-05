@@ -1,3 +1,5 @@
+extra["springCloudVersion"] = "2025.1.0"
+
 plugins {
     java
     id("org.springframework.boot") version "4.0.1"
@@ -6,7 +8,7 @@ plugins {
 
 group = "com.platform.testing"
 version = "0.0.1-SNAPSHOT"
-description = "gateway"
+description = "platform_backend"
 
 java {
     toolchain {
@@ -18,17 +20,17 @@ repositories {
     mavenCentral()
 }
 
-extra["springCloudVersion"] = "2025.1.0"
-
 dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webmvc")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+val springCloudVersion: String by project.extra
+
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     }
 }
 
