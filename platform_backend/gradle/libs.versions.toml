@@ -1,0 +1,11 @@
+[versions]
+lombok = "1.18.26"
+springDependencyManagement = "1.1.0"
+kotlin = "1.9.23"
+
+[libraries]
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+[plugins]
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
