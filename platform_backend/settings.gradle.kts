@@ -7,3 +7,5 @@ include("gateway")
 include("agent_service")
 include("testcase_service")
 include("testing_engine")
+
+includeBuild("build-logic")
