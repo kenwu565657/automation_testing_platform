@@ -2,6 +2,8 @@ extra["springCloudVersion"] = "2025.1.0"
 
 plugins {
     java
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.spring.dependency.management) apply false
 }
 
 group = "com.platform.testing"
