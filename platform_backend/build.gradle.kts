@@ -21,6 +21,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":common_module"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
 }
 
@@ -31,14 +32,6 @@ subprojects {
 
     tasks.register("prepareKotlinBuildScriptModel") {
         // no-op
-    }
-
-    if (project.name != "common_module") {
-        afterEvaluate {
-            dependencies {
-                implementation(project(":common_module"))
-            }
-        }
     }
 }
 

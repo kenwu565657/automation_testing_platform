@@ -1,13 +1,11 @@
 plugins {
-    java
+    `java-library`
 }
 
 group = "com.platform.testing"
 version = "0.0.1-SNAPSHOT"
 description = "testcase_service"
 
-subprojects {
-    repositories {
-        mavenCentral()
-    }
+dependencies {
+    api(project(":common_module"))
 }
