@@ -1,10 +1,21 @@
 [versions]
-lombok = "1.18.26"
+lombok = "1.18.30"
 springDependencyManagement = "1.1.0"
 kotlin = "1.9.23"
+springBoot = "3.1.4"
+mapstruct = "1.5.5.Final"
+postgresql = "42.7.3"
+junit = "5.10.0"
 
 [libraries]
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springBoot" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+lombok-mapstruct-binding = { module = "org.projectlombok:lombok-mapstruct-binding", version = "0.2.0" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "1.10.1" }
 
 [plugins]
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }

@@ -7,6 +7,6 @@ version = "0.0.1-SNAPSHOT"
 description = "common_module"
 
 dependencies {
-    api(libs.lombok)
+    compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
 }
