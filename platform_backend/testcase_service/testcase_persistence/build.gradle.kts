@@ -10,6 +10,9 @@ dependencies {
     api(project(":testcase_service:testcase_domain"))
     implementation(libs.spring.boot.starter.data.jpa)
     runtimeOnly(libs.postgresql)
+    implementation(libs.aws.secretsmanager)
+
+    implementation(libs.jackson.databind)
 
     implementation(libs.mapstruct)
     compileOnly(libs.lombok)

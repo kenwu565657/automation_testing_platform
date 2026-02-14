@@ -8,6 +8,8 @@ description = "testcase_domain"
 
 dependencies {
     api(project(":common_module"))
+    implementation(libs.spring.boot.starter)
+
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
     annotationProcessor(libs.lombok.mapstruct.binding)

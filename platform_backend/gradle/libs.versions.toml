@@ -6,6 +6,8 @@ springBoot = "3.1.4"
 mapstruct = "1.5.5.Final"
 postgresql = "42.7.3"
 junit = "5.10.0"
+awsSdk = "2.25.11"
+jackson = "2.15.2"
 
 [libraries]
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
@@ -16,6 +18,11 @@ postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" 
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 lombok-mapstruct-binding = { module = "org.projectlombok:lombok-mapstruct-binding", version = "0.2.0" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "1.10.1" }
+aws-secretsmanager = { module = "software.amazon.awssdk:secretsmanager", version.ref = "awsSdk" }
+aws-regions = { module = "software.amazon.awssdk:regions", version.ref = "awsSdk" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springBoot" }
 
 [plugins]
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }

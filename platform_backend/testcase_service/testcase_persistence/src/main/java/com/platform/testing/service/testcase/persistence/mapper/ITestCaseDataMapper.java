@@ -4,7 +4,7 @@ import com.platform.testing.service.testcase.domain.aggregateroot.TestCaseDataDo
 import com.platform.testing.service.testcase.persistence.entity.TestCaseDataEntity;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ITestCaseDataMapper {
     TestCaseDataEntity mapTestCaseDataDomainModelToTestCaseDataEntity(TestCaseDataDomainModel testCaseDataDomainModel);
     TestCaseDataDomainModel mapTestCaseDataEntityToTestCaseDataDomainModel(TestCaseDataEntity testCaseDataEntity);
