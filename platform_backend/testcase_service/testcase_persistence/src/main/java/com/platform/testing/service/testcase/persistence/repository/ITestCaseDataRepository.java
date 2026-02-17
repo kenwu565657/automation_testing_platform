@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ITestCaseDataRepository extends JpaRepository<TestCaseDataEntity, String> {
+    TestCaseDataEntity getTestCaseDataEntityById(String id);
 }
