@@ -1,13 +1,12 @@
 rootProject.name = "platform_backend"
 
-extra["springCloudVersion"] = "2025.1.0"
+// ── Shared modules ──
+include("shared-domain")
+include("shared-event")
+include("shared-infra")
 
-include("common_module")
-include("gateway")
-include("agent_service")
-include("testing_engine")
-include("testcase_service:testcase_domain")
-include("testcase_service:testcase_persistence")
-include("testcase_service:testcase_web")
-include("testcase_service:testcase_container")
-// includeBuild("build-logic")
+// ── Services ──
+include("gateway-service")
+include("admin-service")
+include("engine-service")
+include("report-service")
