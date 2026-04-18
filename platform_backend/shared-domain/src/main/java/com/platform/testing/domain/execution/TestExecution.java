@@ -1,9 +1,14 @@
 package com.platform.testing.domain.execution;
 
+import com.platform.testing.domain.constant.ExecutionStatus;
+import com.platform.testing.domain.constant.StepStatus;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -86,23 +91,24 @@ public class TestExecution {
 
     // ---- JSON serialization ----
 
-    public JsonObject toJson() {
-        var stepsArray = new JsonArray();
+    public Map<String, Object> toJson() {
+        var stepsArray = new ArrayList<Map<String, Object>>();
         stepResults.forEach(r -> stepsArray.add(r.toJson()));
 
-        return new JsonObject()
-                .put("executionId", executionId)
-                .put("testCaseId", testCaseId)
-                .put("testCaseName", testCaseName)
-                .put("testType", testType)
-                .put("environmentId", environmentId)
-                .put("status", status.name())
-                .put("currentStepIndex", currentStepIndex)
-                .put("durationMillis", durationMillis())
-                .put("errorMessage", errorMessage)
-                .put("startedAt", startedAt != null ? startedAt.toString() : null)
-                .put("finishedAt", finishedAt != null ? finishedAt.toString() : null)
-                .put("stepResults", stepsArray);
+        Map<String, Object> map = new HashMap<>();
+        map.put("executionId", executionId);
+        map.put("testCaseId", testCaseId);
+        map.put("testCaseName", testCaseName);
+        map.put("testType", testType);
+        map.put("environmentId", environmentId);
+        map.put("status", status.name());
+        map.put("currentStepIndex", currentStepIndex);
+        map.put("durationMillis", durationMillis());
+        map.put("errorMessage", errorMessage);
+        map.put("startedAt", startedAt != null ? startedAt.toString() : null);
+        map.put("finishedAt", finishedAt != null ? finishedAt.toString() : null);
+        map.put("stepResults", stepsArray);
+        return map;
     }
 
     // ---- Getters ----

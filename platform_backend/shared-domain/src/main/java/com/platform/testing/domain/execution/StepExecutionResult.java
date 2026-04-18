@@ -3,6 +3,8 @@ package com.platform.testing.domain.execution;
 import com.platform.testing.domain.constant.StepStatus;
 
 import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Immutable Value Object — result of a single step execution.
@@ -41,14 +43,15 @@ public record StepExecutionResult(
         );
     }
 
-    public JsonObject toJson() {
-        return new JsonObject()
-                .put("stepIndex", stepIndex)
-                .put("stepText", stepText)
-                .put("keyword", keyword)
-                .put("status", status.name())
-                .put("durationMillis", durationMillis)
-                .put("errorMessage", errorMessage)
-                .put("timestamp", timestamp.toString());
+    public Map<String, Object> toJson() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("stepIndex", stepIndex);
+        map.put("stepText", stepText);
+        map.put("keyword", keyword);
+        map.put("status", status.name());
+        map.put("durationMillis", durationMillis);
+        map.put("errorMessage", errorMessage);
+        map.put("timestamp", timestamp.toString());
+        return map;
     }
 }

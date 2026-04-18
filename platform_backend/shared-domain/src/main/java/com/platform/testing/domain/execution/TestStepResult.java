@@ -2,9 +2,6 @@ package com.platform.testing.domain.execution;
 
 import com.platform.testing.domain.common.ValueObject;
 import com.platform.testing.domain.constant.RunStatus;
-import com.platform.testing.domain.constant.StepStatus;
-
-import java.time.Instant;
 
 public record TestStepResult(
         String testStepId,
@@ -16,16 +13,15 @@ public record TestStepResult(
         String errorMessage,
         String screenshotPath
 ) implements ValueObject {
-    public static TestStepResult passed(int idx, String text, String keyword, long durationMs) {
-        return new TestStepResult(idx, text, keyword, StepStatus.PASSED, durationMs, null, null, Instant.now());
+    public static TestStepResult passed(String testStepId, int orderIndex, long durationMs, String actualValue, String expectedValue) {
+        return new TestStepResult(testStepId, orderIndex, RunStatus.PASSED, durationMs, actualValue, expectedValue, null, null);
     }
 
-    public static TestStepResult failed(int idx, String text, String keyword,
-                                    long durationMs, String error, String screenshot) {
-        return new TestStepResult(idx, text, keyword, StepStatus.FAILED, durationMs, error, screenshot, Instant.now());
+    public static TestStepResult failed(String testStepId, int orderIndex, long durationMs, String actualValue, String expectedValue, String error, String screenshot) {
+        return new TestStepResult(testStepId, orderIndex, RunStatus.FAILED, durationMs, actualValue, expectedValue, error, screenshot);
     }
 
-    public static TestStepResult skipped(int idx, String text, String keyword) {
-        return new TestStepResult(idx, text, keyword, StepStatus.SKIPPED, 0, null, null, Instant.now());
+    public static TestStepResult skipped(String testStepId, int orderIndex) {
+        return new TestStepResult(testStepId, orderIndex, RunStatus.SKIPPED, 0, null, null, null, null);
     }
 }
