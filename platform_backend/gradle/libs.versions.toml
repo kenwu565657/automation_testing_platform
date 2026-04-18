@@ -24,7 +24,7 @@ hibernate = "6.6.4.Final"
 exposed = "0.58.0"
 
 # ── Messaging ──
-kafka = "3.9.0"
+kafka = "4.1.2"
 
 # ── Search & Cache ──
 elasticsearch = "8.16.1"
