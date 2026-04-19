@@ -9,10 +9,12 @@ dependencies {
 
     // Jackson (runtime — this module provides actual serializers)
     api(libs.jackson.databind)
+    api(libs.jackson.annotations)
     api(libs.jackson.datatype.jsr310)
 
     // Kafka client (for serializer/deserializer classes)
     compileOnly(libs.kafka.clients)
+    testImplementation(libs.kafka.clients)
 
     // Flyway (for migration helper)
     compileOnly(libs.flyway.core)
@@ -28,4 +30,7 @@ dependencies {
 
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
+
+    // Unit testing
+    testImplementation(libs.junit.jupiter)
 }
