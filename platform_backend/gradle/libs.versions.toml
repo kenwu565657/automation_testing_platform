@@ -48,6 +48,7 @@ gatling = "3.13.1"
 lombok = "1.18.36"
 shadow = "8.1.1"
 mapstruct = "1.5.5.Final"
+jacoco = "0.8.12"
 
 # ── Cloud & AWS ──
 aws-sdk = "2.25.11"

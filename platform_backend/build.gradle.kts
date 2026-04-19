@@ -18,6 +18,12 @@ allprojects {
 
 subprojects {
     apply(plugin = "java")
+    apply(plugin = "jacoco")
+
+    val libs = rootProject.extensions.getByType<VersionCatalogsExtension>().named("libs")
+    configure<JacocoPluginExtension> {
+        toolVersion = libs.findVersion("jacoco").get().requiredVersion
+    }
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -29,5 +35,16 @@ subprojects {
         options.compilerArgs.addAll(listOf("-parameters"))
     }
 
-    tasks.withType<Test> { useJUnitPlatform() }
+    tasks.withType<Test> { 
+        useJUnitPlatform() 
+        finalizedBy("jacocoTestReport")
+    }
+
+    tasks.withType<JacocoReport> {
+        dependsOn(tasks.withType<Test>())
+        reports {
+            xml.required.set(true)
+            html.required.set(true)
+        }
+    }
 }
