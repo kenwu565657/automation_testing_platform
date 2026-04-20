@@ -16,14 +16,14 @@ include:
   - path: infrastructure/redis.yml
 
   # ── Dev Tools (opt-in) ──
-  - path: tools/kibana.yml
-  - path: tools/kafka-ui.yml
+  - path: tool/kibana.yml
+  - path: tool/kafka-ui.yml
 
   # ── Application Services (opt-in) ──
-  - path: services/gateway.yml
-  - path: services/admin.yml
-  - path: services/engine.yml
-  - path: services/report.yml
+  - path: service/gateway.yml
+  - path: service/admin.yml
+  - path: service/engine.yml
+  - path: service/report.yml
 
 networks:
   platform-network:
@@ -32,5 +32,5 @@ networks:
 volumes:
   postgres-data:
   kafka-data:
-  es-data:
+  elasticsearch-data:
   redis-data:
