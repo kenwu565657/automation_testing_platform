@@ -5,9 +5,11 @@ import com.platform.testing.domain.project.ProjectId;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Map;
 
 public class PageObject implements AggregateRoot {
 
@@ -71,4 +73,18 @@ public class PageObject implements AggregateRoot {
     public List<PageElement> getElements() { return Collections.unmodifiableList(elements); }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
+
+    public Map<String, Map<String, String>> toLocatorMap() {
+        Map<String, java.util.Map<String, String>> map = new HashMap<>();
+        for (PageElement element : elements) {
+            if (!element.getLocators().isEmpty()) {
+                ElementLocator locator = element.getLocators().get(0);
+                Map<String, String> locatorDetails = new HashMap<>();
+                locatorDetails.put("strategy", locator.locatorStrategy().name());
+                locatorDetails.put("value", locator.locatorValue());
+                map.put(element.getName(), locatorDetails);
+            }
+        }
+        return map;
+    }
 }
