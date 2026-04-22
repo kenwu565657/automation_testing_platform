@@ -4,7 +4,10 @@ import com.platform.testing.domain.common.DomainEntity;
 import com.platform.testing.domain.constant.RunStatus;
 import com.platform.testing.domain.testcase.TestCaseId;
 import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 
 public class TestCaseResult implements DomainEntity {
 
@@ -56,13 +59,39 @@ public class TestCaseResult implements DomainEntity {
         this.durationMs = completedAt.toEpochMilli() - startedAt.toEpochMilli();
     }
 
-    public String getId() { return id; }
-    public TestCaseId getTestCaseId() { return testCaseId; }
-    public ExecutionTargetId getExecutionTargetId() { return executionTargetId; }
-    public RunStatus getStatus() { return status; }
-    public List<TestStepResult> getStepResults() { return Collections.unmodifiableList(stepResults); }
-    public Instant getStartedAt() { return startedAt; }
-    public Instant getCompletedAt() { return completedAt; }
-    public long getDurationMs() { return durationMs; }
-    public String getErrorMessage() { return errorMessage; }
+    public String getId() {
+        return id;
+    }
+
+    public TestCaseId getTestCaseId() {
+        return testCaseId;
+    }
+
+    public ExecutionTargetId getExecutionTargetId() {
+        return executionTargetId;
+    }
+
+    public RunStatus getStatus() {
+        return status;
+    }
+
+    public List<TestStepResult> getStepResults() {
+        return Collections.unmodifiableList(stepResults);
+    }
+
+    public Instant getStartedAt() {
+        return startedAt;
+    }
+
+    public Instant getCompletedAt() {
+        return completedAt;
+    }
+
+    public long getDurationMs() {
+        return durationMs;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 }

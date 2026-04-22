@@ -4,7 +4,10 @@ import com.platform.testing.domain.common.AggregateRoot;
 import com.platform.testing.domain.project.ProjectId;
 import com.platform.testing.domain.testcase.TestCaseId;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class TestSuite implements AggregateRoot {
 
@@ -61,12 +64,35 @@ public class TestSuite implements AggregateRoot {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public TestSuiteId getId() { return id; }
-    public String getName() { return name; }
-    public String getDescription() { return description; }
-    public ProjectId getProjectId() { return projectId; }
-    public List<TestCaseId> getTestCaseIds() { return Collections.unmodifiableList(testCaseIds); }
-    public boolean isActive() { return active; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public TestSuiteId getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public ProjectId getProjectId() {
+        return projectId;
+    }
+
+    public List<TestCaseId> getTestCaseIds() {
+        return Collections.unmodifiableList(testCaseIds);
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 }

@@ -12,13 +12,18 @@ import java.util.Objects;
  */
 public record GherkinStep(
         int orderIndex,
+        String name,
         GherkinKeyword keyword,
-        String stepText,           // "I enter \"admin\" into the \"username\" field"
-        ActionType actionType,     // CLICK, TYPE_TEXT, HTTP_REQUEST
+        String stepText,
+        ActionType actionType,
         Map<String, String> actionParameters,
-        String targetElementId,    // nullable — reference to PageElement
+        String targetElementId,
+        StepAssertion assertion,
+        VariableExtraction extraction,
         boolean background,
-        boolean continueOnFailure
+        boolean continueOnFailure,
+        int waitBeforeMs,
+        int waitAfterMs
 ) {
     public GherkinStep {
         Objects.requireNonNull(keyword);

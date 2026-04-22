@@ -34,6 +34,8 @@ public record ExecutionTarget(
         Objects.requireNonNull(id);
         Objects.requireNonNull(name);
         Objects.requireNonNull(platformType);
-        if (extraCapabilities == null) extraCapabilities = Map.of();
+        if (extraCapabilities == null) {
+            extraCapabilities = Map.of();
+        }
     }
 }
